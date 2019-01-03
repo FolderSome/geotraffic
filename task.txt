@@ -1,0 +1,27 @@
+1.       Write a tool (in python/java/whatever you want) that will generate traffic for testing the geo protection mechanism.
+
+
+
+In details:
+
+-          The tool command line should be “geotraffic.py <src ip (a.b.c.d / XXX)> <dst ip (e.f.g.h / YYY)> <interface>”
+
+-          a.b.c.d and e.f.g.h are IP addresses and XXX,YYY are country codes (the 3 letters from here: http://www.worldatlas.com/aatlas/ctycodes.htm)
+
+-          If the input is in the format of an IP address then that IP address should be used. If the input is a country code then a random IP address from that country should be selected.
+
+-          The tool eventually should generate and send a UDP packet with random payload with the relevant source IP and dest IP and with random ports, through the chosen interface.
+
+
+
+For example, running “geotraffic.py IRN ESP eth0” will generate a UDP packet from a random IP in Iran to a random IP in Spain (with random ports and random payload).
+
+Running “geotraffic.py USA 192.168.42.2 eth1” will generate a UDP packet from a random IP in the USA to 102.168.42.2 using eth1 interface.
+
+
+
+Hints / Help:
+
+-          You should be able to select random IPs from every country, you should use a ip-to-country file and parse it (http://software77.net/geo-ip/ -- look for the download button)
+
+-          You should use this tool from linux and root privileges are likely needed (see here for help https://gist.github.com/cslarsen/11339448)
